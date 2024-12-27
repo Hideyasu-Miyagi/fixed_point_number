@@ -61,12 +61,13 @@ struct FXP_S32_31 {
           frac_part = (value_)&0x7FFFFFFF;
       }
       if (value_ < 0) {
-          snprintf(_buf, _size, "-%llu.%03llu", int_part, frac_part*1000/2097152);
+          snprintf(_buf, _size, "-%llu.%03llu", int_part, frac_part*10000000000/2147483648);
       } else {
-          snprintf(_buf, _size, "%llu.%03llu", int_part, frac_part*1000/2097152);
+          snprintf(_buf, _size, "%llu.%03llu", int_part, frac_part*10000000000/2147483648);
       }
       return _buf;
   }
+  
 
    int64_t toInt64() const { return value_/0x0000000080000000L; }
 
